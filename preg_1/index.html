@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <h2>Bienvenido Ingrese su nombre</h2>
+    <label for="nombre">Ingresa tu nombre:</label>
+    <input type="text" name="" id="nombre">
+    <button onclick="mostrarMensaje()">Enviar</button>
+
+    <p id="mensaje">AQUI VA SU NOMBRE</p>
+
+    <script>
+        function mostrarMensaje(){
+            var nombre = document.getElementById("nombre").value;
+            if(nombre){
+                document.getElementById("mensaje").innerHTML="Hola, "+nombre;
+            }
+            else{
+                document.getElementById("mensaje").innerHTML="Por fa, ingrese su nombre";
+            }
+        }
+    </script>
+</body>
+</html>

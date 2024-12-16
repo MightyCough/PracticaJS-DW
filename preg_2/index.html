@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <main class="padding-bottom:4px;">
+    <h2>Calculadora</h2>
+    <label for="numero1">Ingrese aqui el primer numero</label>
+    <input type="number" name="numero1" id="numero1"><br><br>
+    <label for="numero2">Ingrese aqui el segundo numero</label>
+    <input type="number" name="" id="numero2"><br><br>
+   
+    <label for="operacion">Selecciona una operación:</label>
+    <select id="operacion">
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multiplicacion">Multiplicación</option>
+        <option value="division">División</option>
+    </select><br><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <h2>Resultado:</h2>
+    <p id="resultado">AQUI LA RESPUESTA</p>
+    </main>
+    <script>
+        function calcular(){
+            var num1 = parseFloat(document.getElementById("numero1").value);
+            var num2 = parseFloat(document.getElementById("numero2").value);
+            var operacion = document.getElementById("operacion").value;
+            if(!isNaN(num1) && !isNaN(num2)){
+                var resultado;
+                switch(operacion){
+                    case 'suma':
+                        resultado = num1+num2;
+                        break;
+                    case 'resta':
+                        resultado=num1-num2;
+                        break;
+                    case 'multiplicacion':
+                        resultado=num1*num2;
+                        break;
+                    case 'division':
+                        if(num2 !== 0){
+                            resultado=num1/num2;
+                            break;
+                        }
+                        else{
+                            resultado = "No se puede dividir por cero";
+                            break;
+                        }
+                    break;
+                    default:
+                    resultado='Operacion no valida';
+                }
+                document.getElementById("resultado").innerHTML="Resultado:" + resultado;
+            }
+            else{
+                document.getElementById("resultado").innerHTML="Por fa, ingrese ambos numeros";
+            }
+        
+        }
+    </script>
+</body>
+</html>

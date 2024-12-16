@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+</head>
+<body>
+    <h2>Calcular Promedio</h2>
+    <p>Ingresa dos números:</p>
+    <input type="number" id="num1" placeholder="Número 1">
+    <input type="number" id="num2" placeholder="Número 2">
+    <button onclick="mostrarPromedio()">Calcular promedio</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularPromedio(num1, num2) {
+            return (num1 + num2) / 2;
+        }
+
+        function mostrarPromedio() {
+            const numero1 = parseFloat(document.getElementById('num1').value);
+            const numero2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(numero1) && !isNaN(numero2)) {
+                const promedio = calcularPromedio(numero1, numero2);
+                console.log("El promedio es: " + promedio);
+                document.getElementById('resultado').textContent = "El promedio es: " + promedio;
+            } else {
+                alert("Por favor, ingresa números válidos.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h1>Verifique si es mayo de edad</h1>
+    <label for="usuario">Escriba aqui su edad</label>
+    <input type="number" name="" id="numero"><br><br>
+    <button onclick="IsorNo()">Enviar</button>
+
+    <h2>Resultado:</h2>
+    <p id="result">AQUI SU RESPUESTA</p>
+    <script>
+        function IsorNo(){
+            var mayor = parseFloat(document.getElementById("numero").value);
+            var resultado;
+            if(!isNaN(mayor)){ 
+            if( mayor>=18){
+                resultado = "Eres mayor de edad";
+            
+            }
+            else{
+                resultado="No eres mayor de edad, abstente de ir a fiestas";
+            
+            }
+        }else{
+            resultado="por fa, ingresa una edad valida";
+        }
+            document.getElementById("result").innerHTML=resultado;
+        }
+    </script>
+</body>
+</html>

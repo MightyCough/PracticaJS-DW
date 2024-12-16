@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <h2>Validador de Número Entero Positivo</h2>
+    <input type="number" id="numero" placeholder="Ingresa un número">
+    <button onclick="validarNumero()">Validar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function validarNumero() {
+            const valor = parseInt(document.getElementById('numero').value, 10);
+            const resultado = document.getElementById('resultado');
+
+            if (Number.isInteger(valor) && valor > 0) {
+                resultado.textContent = "El número es un entero positivo válido.";
+                resultado.style.color = "green";
+            } else {
+                resultado.textContent = "El número no es un entero positivo válido.";
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

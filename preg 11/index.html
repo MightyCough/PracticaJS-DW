@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Básico de AJAX</title>
+</head>
+<body>
+
+    <h1>Ejemplo Básico de AJAX</h1>
+    <button id="loadDataButton">Cargar Datos</button>
+    <div id="result"></div>
+
+    <script>
+        // Obtener el botón y el contenedor de resultados
+        var button = document.getElementById('loadDataButton');
+        var resultContainer = document.getElementById('result');
+
+        // Agregar evento para cargar los datos cuando el usuario hace clic en el botón
+        button.addEventListener('click', function() {
+            // Crear una nueva instancia de XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Configurar la solicitud: tipo (GET) y URL
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+
+            // Definir lo que ocurre cuando la respuesta está lista
+            xhr.onreadystatechange = function() {
+                // Verificar si la solicitud se ha completado con éxito
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Convertir la respuesta JSON en un objeto JavaScript
+                    var data = JSON.parse(xhr.responseText);
+
+                    // Mostrar los primeros 3 títulos de los posts en el contenedor
+                    var html = '<ul>';
+                    for (var i = 0; i < 3; i++) {
+                        html += '<li>' + data[i].title + '</li>';
+                    }
+                    html += '</ul>';
+
+                    // Mostrar los resultados en el contenedor
+                    resultContainer.innerHTML = html;
+                }
+            };
+
+            // Enviar la solicitud
+            xhr.send();
+        });
+    </script>
+
+</body>
+</html>

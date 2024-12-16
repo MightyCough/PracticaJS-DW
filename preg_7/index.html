@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head> 
+<body>
+    <h2>Conversión de string a número entero</h2>
+    <input type="text" id="numeroString" placeholder="Ingresa un número">
+    <button onclick="convertirYMostrar()">Convertir y mostrar en consola</button>
+
+    <script>
+        function convertirYMostrar() {
+            const valorString = document.getElementById('numeroString').value;
+            const numeroEntero = parseInt(valorString, 10);
+
+            if (!isNaN(numeroEntero)) {
+                console.log(numeroEntero);
+                alert("El número entero es: " + numeroEntero);
+            } else {
+                alert("Por favor, ingresa un valor numérico válido.");
+            }
+        }
+    </script>
+</body>
+</html>
